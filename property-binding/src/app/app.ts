@@ -14,6 +14,7 @@ export class App {
   username:string='honey';
   inputReadOnly=false;
   selectCheckBox= false;
+   imageUrl = 'https://avatars.githubusercontent.com/u/128143049';
   toggleDisabled(){
     this.btnDisabled=!this.btnDisabled;
   } 
