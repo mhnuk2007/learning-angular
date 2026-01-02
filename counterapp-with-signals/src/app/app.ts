@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,4 +9,20 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('counterapp-with-signals');
+
+  counter:WritableSignal<number> = signal<number>(0);
+
+  increment(){
+    this.counter.update(val => val + 1);
+  }
+  decrement(){
+    if(this.counter()>0){
+    this.counter.update(val => val - 1);
+    }
+  }
+  reset(){
+    this.counter.set(0);
+  }
+
+
 }
