@@ -25,21 +25,26 @@ export class App {
   constructor() {
     // Effect to watch reactive signals
     effect(() => {
-      console.log("Data (normal):", this.data);
-      console.log("Count (signal):", this.count());
-      if(this.speed()>0 && this.speed()<=80) {
-        this.color = "green";
-      } else if(this.speed()>80 && this.speed()<=120) {
-        this.color = "yellow";
-      } else if(this.speed()>120) {
-        this.color = "red";
-      } else {
-        this.color = "black";
-      }
+      console.log('Data (normal):', this.data);
+      console.log('Count (signal):', this.count());
     });
 
     effect(() => {
-      console.log("Speed (signal):", this.speed());
+      if (this.speed() > 0 && this.speed() <= 80) {
+        this.color = 'green';
+      } else if (this.speed() > 80 && this.speed() <= 120) {
+        this.color = 'yellow';
+      } else if (this.speed() > 120) {
+        this.color = 'red';
+      } else {
+        this.color = 'black';
+      }
+
+      console.log('Speed (signal):', this.speed());
+    });
+
+    effect(() => {
+      console.log('Fruit (signal):', this.fruit());
     });
   }
 
@@ -50,14 +55,12 @@ export class App {
   nWidth = 100;
   nArea = this.nHeight * this.nWidth;
 
-  sArea1 = signal(this.nHeight*this.nWidth);
+  sArea1 = signal(this.nHeight * this.nWidth);
 
   // Basic signals
   sHeight = signal(100);
   sWidth = signal(100);
   sArea2 = this.sHeight() * this.sWidth(); // NOT reactive
-
-
 
   // Computed signal (reactive)
   cArea = computed(() => this.sHeight() * this.sWidth());
@@ -65,8 +68,7 @@ export class App {
   // -------------------
   // Update methods
   handlenWidth() {
-    this.nWidth = this.nWidth+10;
-
+    this.nWidth = this.nWidth + 10;
   }
 
   handlesWidth() {
@@ -77,14 +79,14 @@ export class App {
   // Effect in Angular
 
   speed = signal(0);
-  color = "black";
+  color = 'black';
 
   increaseSpeed() {
     this.speed.set(this.speed() + 10);
   }
 
-
-
-
-
+  fruit = signal('apple');
+  changeFruit() {
+    this.fruit.set('banana');
+  }
 }
