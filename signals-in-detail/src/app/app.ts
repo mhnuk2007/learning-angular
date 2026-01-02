@@ -27,6 +27,19 @@ export class App {
     effect(() => {
       console.log("Data (normal):", this.data);
       console.log("Count (signal):", this.count());
+      if(this.speed()>0 && this.speed()<=80) {
+        this.color = "green";
+      } else if(this.speed()>80 && this.speed()<=120) {
+        this.color = "yellow";
+      } else if(this.speed()>120) {
+        this.color = "red";
+      } else {
+        this.color = "black";
+      }
+    });
+
+    effect(() => {
+      console.log("Speed (signal):", this.speed());
     });
   }
 
@@ -44,7 +57,7 @@ export class App {
   sWidth = signal(100);
   sArea2 = this.sHeight() * this.sWidth(); // NOT reactive
 
-  
+
 
   // Computed signal (reactive)
   cArea = computed(() => this.sHeight() * this.sWidth());
@@ -53,10 +66,25 @@ export class App {
   // Update methods
   handlenWidth() {
     this.nWidth = this.nWidth+10;
-    
+
   }
 
   handlesWidth() {
     this.sWidth.set(this.sWidth() + 10); // cArea auto-updates
   }
+
+  // Global state with signals
+  // Effect in Angular
+
+  speed = signal(0);
+  color = "black";
+
+  increaseSpeed() {
+    this.speed.set(this.speed() + 10);
+  }
+
+
+
+
+
 }

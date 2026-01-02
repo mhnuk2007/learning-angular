@@ -36,4 +36,11 @@
   <li><b>Computed signal:</b> Fully reactive; auto-updates when dependent signals change</li>
 </ul>
 
+<hr>
+
+<!-- ------------------ -->
+ <h1>Effect</h1>
+ <h2 [style.color]="color">{{speed()}}</h2>
+ <button (click)="increaseSpeed()">Increase Speed</button>
+
 <router-outlet></router-outlet>
