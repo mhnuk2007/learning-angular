@@ -12,5 +12,6 @@ export class App {
 
   btnDisabled=false;
   username:string='honey';
+  inputReadOnly=false;
 
 }
