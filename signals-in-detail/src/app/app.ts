@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, signal, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('signals-in-detail');
 
+  // Normal property vs signal
   data = 10;
   count = signal(0);
 
@@ -22,9 +23,40 @@ export class App {
   }
 
   constructor() {
+    // Effect to watch reactive signals
     effect(() => {
-      console.log("Data: ", this.data);
-      console.log('Count: ', this.count());
+      console.log("Data (normal):", this.data);
+      console.log("Count (signal):", this.count());
     });
+  }
+
+  // -------------------
+  // Area examples
+  // Normal properties
+  nHeight = 100;
+  nWidth = 100;
+  nArea = this.nHeight * this.nWidth;
+
+  sArea1 = signal(this.nHeight*this.nWidth);
+
+  // Basic signals
+  sHeight = signal(100);
+  sWidth = signal(100);
+  sArea2 = this.sHeight() * this.sWidth(); // NOT reactive
+
+  
+
+  // Computed signal (reactive)
+  cArea = computed(() => this.sHeight() * this.sWidth());
+
+  // -------------------
+  // Update methods
+  handlenWidth() {
+    this.nWidth = this.nWidth+10;
+    
+  }
+
+  handlesWidth() {
+    this.sWidth.set(this.sWidth() + 10); // cArea auto-updates
   }
 }
