@@ -1,25 +1,30 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('signals-in-detail');
 
-  data=10;
-  count=signal(0);
+  data = 10;
+  count = signal(0);
 
-
-  updateData(){  
+  updateData() {
     this.data++;
   }
 
-  updateCount(){
-    this.count.set(this.count()+1);
-    console.log(this.count()+1)
+  updateCount() {
+    this.count.set(this.count() + 1);
+  }
+
+  constructor() {
+    effect(() => {
+      console.log("Data: ", this.data);
+      console.log('Count: ', this.count());
+    });
   }
 }
