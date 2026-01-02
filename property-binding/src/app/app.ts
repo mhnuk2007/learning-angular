@@ -13,5 +13,14 @@ export class App {
   btnDisabled=false;
   username:string='honey';
   inputReadOnly=false;
+  selectCheckBox= false;
+  toggleDisabled(){
+    this.btnDisabled=!this.btnDisabled;
+  } 
+  toggleReadOnly(){
+    this.inputReadOnly=!this.inputReadOnly;
+  }
+
+
 
 }
