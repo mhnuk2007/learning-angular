@@ -11,6 +11,6 @@ export class App {
   protected readonly title = signal('property-binding');
 
   btnDisabled=false;
-  username:string='jjbbv';
+  username:string='honey';
 
 }
