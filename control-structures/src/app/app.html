@@ -1,47 +1,66 @@
-<h1>Control statements/structures</h1>
+<section class="container">
+  <h1 class="page-title">Control Statements / Structures</h1>
 
-@if (isLogin()) {
-  <span>
-    Welcome, User!
-  </span>
-  <span>
-    <button (click)="handleLogin(false)">Logout</button>
-  </span>
-}@else {
-  <span>
-    Please login!!!
-  </span>
-  <button (click)="handleLogin(true)">Login</button>
-}
-<hr/>
-<h1>Toggle</h1>
-@if(show()){
-<button (click)="show.set(false)">Hide</button>
-}@else {
-<button (click)="show.set(true)">Show</button>
-}
-<hr/>
-<h1>Check Status</h1>
-<select (change)="handleStatus($event)">
-  <option value="notStarted">Not Started</option>
-  <option value="progress">In Progress</option>
-  <option value="success">Success</option>
-  <option value="error">Error</option>
-</select>
-<br>
-<br>
-@if(status()=="notStarted"){
-  <span>No status</span>
-} @else if (status()=="progress") {
-  <span style="color: orange;">In Progress</span>
-} @else if (status()=="success") {
-  <span style="color: green;">Success</span>
-} @else if (status()=="error") {
-  <span style="color: red;">Error</span>
-}
-<hr/>
-<app-for-loop/>
-<br>
-<hr/>
-<app-switch-case/>
-<router-outlet />
+  <!-- Login Section -->
+  <div class="card">
+    <h2 class="section-title">Authentication</h2>
+
+    @if (isLogin()) {
+      <p class="status success">Welcome, User!</p>
+      <button class="btn danger" (click)="handleLogin(false)">Logout</button>
+    } @else {
+      <p class="status warning">Please login to continue</p>
+      <button class="btn primary" (click)="handleLogin(true)">Login</button>
+    }
+  </div>
+
+  <!-- Toggle Section -->
+  <div class="card">
+    <h2 class="section-title">Toggle Example</h2>
+
+    @if (show()) {
+      <button class="btn secondary" (click)="show.set(false)">Hide</button>
+    } @else {
+      <button class="btn secondary" (click)="show.set(true)">Show</button>
+    }
+  </div>
+
+  <!-- Status Section -->
+  <div class="card">
+    <h2 class="section-title">Check Status</h2>
+
+    <select class="select" (change)="handleStatus($event)">
+      <option value="notStarted">Not Started</option>
+      <option value="progress">In Progress</option>
+      <option value="success">Success</option>
+      <option value="error">Error</option>
+    </select>
+
+    <div class="status-box">
+      @if (status() === "notStarted") {
+        <span class="status neutral">No status</span>
+      } @else if (status() === "progress") {
+        <span class="status progress">In Progress</span>
+      } @else if (status() === "success") {
+        <span class="status success">Success</span>
+      } @else if (status() === "error") {
+        <span class="status error">Error</span>
+      }
+    </div>
+  </div>
+
+  <!-- Child Components -->
+  <div class="card">
+    <app-for-loop />
+  </div>
+
+  <div class="card">
+    <app-switch-case />
+  </div>
+
+  <div class="card">
+    <app-user />
+  </div>
+
+  <router-outlet />
+</section>

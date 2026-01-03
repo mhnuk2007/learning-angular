@@ -1,13 +1,104 @@
 :host {
   display: block;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: var(--container-background);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px var(--shadow-color);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9fafb;
 }
 
-span {
-  margin-right: 1rem;
+/* Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-title {
+  text-align: center;
+  color: #1f2937;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Headings */
+.section-title {
+  margin-bottom: 16px;
+  color: #374151;
+  font-size: 18px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.primary {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.secondary {
+  background-color: #6b7280;
+  color: #fff;
+}
+
+.danger {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+/* Status text */
+.status {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.success {
+  color: #16a34a;
+}
+
+.warning {
+  color: #d97706;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.progress {
+  color: #f59e0b;
+}
+
+.neutral {
+  color: #6b7280;
+}
+
+/* Select */
+.select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 12px;
+}
+
+/* Status box */
+.status-box {
+  margin-top: 10px;
 }

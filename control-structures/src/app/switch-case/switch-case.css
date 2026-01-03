@@ -1,36 +1,92 @@
-:host {
-  display: block;
-  margin-top: 2rem;
+.switch-card {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-p {
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 5px solid;
+.title {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+label {
+  font-size: 14px;
+  color: #555;
   font-weight: 500;
-  margin-top: 1rem;
 }
 
-.admin {
-  background-color: var(--admin-bg-color);
-  border-color: var(--admin-border-color);
-  color: var(--admin-text-color);
+.styled-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.moderator {
-  background-color: var(--moderator-bg-color);
-  border-color: var(--moderator-border-color);
-  color: var(--moderator-text-color);
+.styled-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
-.user {
-  background-color: var(--user-bg-color);
-  border-color: var(--user-border-color);
-  color: var(--user-text-color);
+.result-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
 }
 
-.guest {
-  background-color: var(--guest-bg-color);
-  border-color: var(--guest-border-color);
-  color: var(--guest-text-color);
+.result-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-not-started {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.status-loading {
+  background-color: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #ffedd5;
+}
+
+.status-success {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #d1fae5;
+}
+
+.status-error {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fee2e2;
 }

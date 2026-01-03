@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ForLoop } from "./for-loop/for-loop";
 import { SwitchCase } from "./switch-case/switch-case";
+import { User } from "./user/user";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ForLoop, SwitchCase],
+  imports: [RouterOutlet, ForLoop, SwitchCase, User],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

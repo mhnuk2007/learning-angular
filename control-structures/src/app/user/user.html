@@ -1,0 +1,20 @@
+<div class="user-card">
+  <h2 class="title">User Profile</h2>
+
+  <p class="greeting">
+    Hello, <span class="username">{{ user() }}</span>
+  </p>
+
+  <div class="form-group">
+    <label for="username">Enter new username</label>
+    <input
+      id="username"
+      type="text"
+      [value]="temp()"
+      (input)="updateTemp($event)"
+      placeholder="Type name here..."
+    />
+  </div>
+
+  <button class="btn" (click)="updateUser()" [disabled]="!temp()">Update User</button>
+</div>
