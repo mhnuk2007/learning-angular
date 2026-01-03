@@ -143,6 +143,21 @@ Benefits:
 *   Style priority order in Angular?
 *   Can styles be defined inside Component.ts?
 
+## 🚀 Live Examples in This Project
+
+This project now contains live examples of the different styling methods. You can see them on the main application page, where the `AdminDataComponent` and `UserDataComponent` have been added.
+
+*   **Global Styles (`src/styles.css`):**
+    *   The `.heading` class is defined globally. You can see it applied to the main title ("Honey Chauhan") and also to the titles within the "User Data" and "Admin Data" components. This demonstrates how a single global style can affect multiple components.
+
+*   **Component Styles (Scoped):**
+    *   Currently, the component-specific style files (`app.css`, `user-data.css`, `admin-data.css`) are empty. If you were to add a style for `.heading` in `user-data.css`, it would *only* affect the "User Data" title, demonstrating style encapsulation.
+
+*   **Inline & Internal Styles (`admin-data.html`):**
+    *   The `AdminDataComponent` provides a perfect example of styles that are generally discouraged but useful for demos.
+    *   **Inline Style:** The `<h2>` element has its background and text color set directly in the HTML `style` attribute.
+    *   **Internal Style:** The `<h3>` element is styled using a `<style>` tag directly within the HTML template file.
+
 ## 📚 Additional Resources
 
 *   [Angular CLI Overview](https://angular.dev/tools/cli)
