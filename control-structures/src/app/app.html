@@ -49,4 +49,17 @@
   </li>
 }
 </ul>
+<ul>
+  @for(user of userDetails(); track user.id){
+    <li [style.backgroundColor]="$even?'#ccc':'#ddd'">
+      <span>{{$index+1}}. {{user.name + " " + user.surname + " " + user.email}}</span>
+      @if($first){<span style="color: red;">Admin</span>}
+      @if($last){<span style="color: orange;">Guest</span>}
+
+    </li>
+@if($count == $index+1){<span style="color: green; font-weight: bold">Total: {{$count}}</span>}
+
+
+  }
+</ul>
 <router-outlet />
