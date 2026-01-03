@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ForLoop } from "./for-loop/for-loop";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ForLoop],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
