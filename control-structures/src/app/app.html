@@ -21,6 +21,32 @@
 <button (click)="show.set(true)">Show</button>
 }
 <hr/>
-
-
+<h1>Check Status</h1>
+<select (change)="handleStatus($event)">
+  <option value="notStarted">Not Started</option>
+  <option value="progress">In Progress</option>
+  <option value="success">Success</option>
+  <option value="error">Error</option>
+</select>
+<br>
+<br>
+@if(status()=="notStarted"){
+  <span>No status</span>
+} @else if (status()=="progress") {
+  <span style="color: orange;">In Progress</span>
+} @else if (status()=="success") {
+  <span style="color: green;">Success</span>
+} @else if (status()=="error") {
+  <span style="color: red;">Error</span>
+}
+<hr/>
+<h1>Control flow statement - Loops</h1>
+<h2>Users</h2>
+<ul>
+@for(user of users(); track user){
+  <li>
+    {{user}}
+  </li>
+}
+</ul>
 <router-outlet />
