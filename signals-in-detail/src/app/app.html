@@ -1,58 +1,74 @@
 <h1>Angular Signals vs Normal Properties Demo</h1>
 
-<!-- ------------------ -->
-<h2>1. Normal Property vs Signal</h2>
-<p>Data (normal property): {{data}}</p>
-<button (click)="updateData()">Update Data</button>
+<section class="card">
+  <h2>1. Normal Property vs Signal</h2>
 
-<p>Count (signal): {{count()}}</p>
-<button (click)="updateCount()">Update Count</button>
+  <p><b>Data (normal property):</b> {{ data }}</p>
+  <button (click)="updateData()">Update Data</button>
 
-<hr>
+  <p><b>Count (signal):</b> {{ count() }}</p>
+  <button (click)="updateCount()">Update Count</button>
+</section>
 
-<!-- ------------------ -->
-<h2>2. Normal Properties Area</h2>
-<p>Width: {{nWidth}}, Height: {{nHeight}}, Area: {{nArea}}</p>
-<button (click)="handlenWidth()">Increase Width (Normal)</button>
+<section class="card">
+  <h2>2. Normal Properties Area</h2>
 
-<hr>
+  <p>
+    Width: {{ nWidth }},
+    Height: {{ nHeight }},
+    <b>Area:</b> {{ nArea }}
+  </p>
 
-<!-- ------------------ -->
-<h2>3. Signals Area</h2>
-<p>Signal Area1 (initialized with nHeight * nWidth): {{sArea1()}}</p>
-<p>Signal Area2 (basic signal, calculated once): {{sArea2}}</p>
-<p>Computed Area (reactive): {{cArea()}}</p>
+  <button (click)="handlenWidth()">Increase Width (Normal)</button>
+</section>
 
-<button (click)="handlesWidth()">Increase Width (Signal)</button>
-<button (click)="sHeight.set(sHeight() + 10)">Increase Height (Signal)</button>
+<section class="card">
+  <h2>3. Signals Area</h2>
 
-<hr>
+  <p><b>Signal Area1:</b> {{ sArea1() }}</p>
+  <p><b>Signal Area2 (not reactive):</b> {{ sArea2 }}</p>
+  <p><b>Computed Area:</b> {{ cArea() }}</p>
 
-<!-- ------------------ -->
-<h2>Summary</h2>
-<ul>
-  <li><b>Normal properties:</b> Not reactive outside template or getter updates</li>
-  <li><b>Basic signal:</b> Reactive only if explicitly updated with `.set()`; direct calculation won't auto-update</li>
-  <li><b>Computed signal:</b> Fully reactive; auto-updates when dependent signals change</li>
-</ul>
+  <button (click)="handlesWidth()">Increase Width</button>
+  <button (click)="sHeight.set(sHeight() + 10)">Increase Height</button>
+</section>
 
-<hr>
+<section class="card">
+  <h2>Summary</h2>
+  <ul>
+    <li><b>Normal properties:</b> No automatic reactivity</li>
+    <li><b>Signal:</b> Reactive when updated via <code>.set()</code> / <code>.update()</code></li>
+    <li><b>Computed signal:</b> Auto-updates when dependencies change</li>
+  </ul>
+</section>
 
-<!-- ------------------ -->
- <h1>Effect</h1>
- <h2 [style.color]="color">{{speed()}}</h2>
- <button (click)="increaseSpeed()">Increase Speed</button>
+<section class="card">
+  <h2>Effect Example (Speed → Color)</h2>
 
- <h2>{{fruit()}}</h2>
- <button (click)="changeFruit()">Change Fruit</button>
- <p>
-  <input type="text" [name] = "name()" (input)="setName($event.target.value)" />
- </p>
-<p>
-<span>
-Value: {{name()}}
-</span>
-<br/>
-<button (click)="changeName()">Change Name</button>
-</p>
+  <h3 [style.color]="color">{{ speed() }}</h3>
+  <button (click)="increaseSpeed()">Increase Speed</button>
+</section>
+
+<section class="card">
+  <h2>Signal Value Change</h2>
+
+  <p><b>Fruit:</b> {{ fruit() }}</p>
+  <button (click)="changeFruit()">Change Fruit</button>
+</section>
+
+<section class="card">
+  <h2>Get & Set Input Value Using Signals</h2>
+
+  <input
+    type="text"
+    placeholder="Enter name"
+    [value]="name()"
+    (input)="setName($event.target.value)"
+  />
+
+  <p><b>Value:</b> {{ name() }}</p>
+
+  <button (click)="changeName()">Set Default Name</button>
+</section>
+
 <router-outlet></router-outlet>
