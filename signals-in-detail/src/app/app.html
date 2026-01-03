@@ -45,7 +45,14 @@
 
  <h2>{{fruit()}}</h2>
  <button (click)="changeFruit()">Change Fruit</button>
-
-
-
+ <p>
+  <input type="text" [name] = "name()" (input)="setName($event.target.value)" />
+ </p>
+<p>
+<span>
+Value: {{name()}}
+</span>
+<br/>
+<button (click)="changeName()">Change Name</button>
+</p>
 <router-outlet></router-outlet>

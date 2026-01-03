@@ -89,4 +89,14 @@ export class App {
   changeFruit() {
     this.fruit.set('banana');
   }
+
+  name=signal('');
+  changeName(){
+    this.name.set('Honey Chauhan')
+  }
+
+  setName(name:string){
+    this.name.set(name);
+
+  }
 }
