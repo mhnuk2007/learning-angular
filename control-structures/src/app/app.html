@@ -4,10 +4,14 @@
   <span>
     Welcome, User!
   </span>
+  <span>
+    <button (click)="handleLogin(false)">Logout</button>
+  </span>
 }@else {
   <span>
     Please login!!!
   </span>
+  <button (click)="handleLogin(true)">Login</button>
 }
 
 <router-outlet />

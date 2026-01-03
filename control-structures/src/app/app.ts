@@ -10,5 +10,9 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('control-structures');
 
-  isLogin = signal(false);
+  isLogin = signal(true);
+
+  handleLogin(val: boolean){
+    this.isLogin.set(val);
+  }
 }
