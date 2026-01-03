@@ -12,7 +12,7 @@ export class App {
 
   isLogin = signal(true);
 
-  handleLogin(val: boolean){
-    this.isLogin.set(val);
+  handleLogin(state: boolean){
+    this.isLogin.set(state);
   }
 }
