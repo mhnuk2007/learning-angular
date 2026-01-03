@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  margin-top: 2rem;
+}
+
+p {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 5px solid;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.admin {
+  background-color: var(--admin-bg-color);
+  border-color: var(--admin-border-color);
+  color: var(--admin-text-color);
+}
+
+.moderator {
+  background-color: var(--moderator-bg-color);
+  border-color: var(--moderator-border-color);
+  color: var(--moderator-text-color);
+}
+
+.user {
+  background-color: var(--user-bg-color);
+  border-color: var(--user-border-color);
+  color: var(--user-text-color);
+}
+
+.guest {
+  background-color: var(--guest-bg-color);
+  border-color: var(--guest-border-color);
+  color: var(--guest-text-color);
+}

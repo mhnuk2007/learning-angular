@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ForLoop } from "./for-loop/for-loop";
+import { SwitchCase } from "./switch-case/switch-case";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ForLoop],
+  imports: [RouterOutlet, ForLoop, SwitchCase],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

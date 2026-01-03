@@ -1,1 +1,27 @@
-<p>switch-case works!</p>
+<h1>Control statements/structures - Switch Case</h1>
+
+<select (change)="handleSwitch($event)">
+  <option value="notStarted">Not Started</option>
+  <option value="loading">Loading</option>
+  <option value="success">Success</option>
+  <option value="error">Error or Other</option>
+</select>
+<br>
+<br>
+
+@switch (status()) {
+  @case ('notStarted') {
+    <span style="color: gray;">Not Started</span>
+  }
+  @case ('loading') {
+    <span style="color: orange;">Loading...</span>
+  }
+  @case ('success') {
+    <span style="color: green;">Success</span>
+  }
+  @default {
+    <span style="color: red;">Error</span>
+
+  }
+
+}
