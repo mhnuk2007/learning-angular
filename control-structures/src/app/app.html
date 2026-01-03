@@ -13,5 +13,14 @@
   </span>
   <button (click)="handleLogin(true)">Login</button>
 }
+<hr/>
+<h1>Toggle</h1>
+@if(show()){
+<button (click)="show.set(false)">Hide</button>
+}@else {
+<button (click)="show.set(true)">Show</button>
+}
+<hr/>
+
 
 <router-outlet />

@@ -11,6 +11,8 @@ export class App {
   protected readonly title = signal('control-structures');
 
   isLogin = signal(true);
+  show = signal(true);
+
 
   handleLogin(state: boolean){
     this.isLogin.set(state);
