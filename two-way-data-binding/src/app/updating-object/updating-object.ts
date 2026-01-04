@@ -13,7 +13,7 @@ export class UpdatingObject {
     email: 'honey@example.com'
   });
 
-  updateUserData(key: string, value: string) {
+  updateUserData(key: string, value: any) {
     this.userData.update((data) => ({
       ...data,
       [key]: value

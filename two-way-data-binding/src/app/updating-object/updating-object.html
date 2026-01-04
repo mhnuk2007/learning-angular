@@ -10,5 +10,15 @@
 -->
 
 <input type="text" [value]="userData().name" (input)="updateUserData('name', $event.target.value)"/>
+<br>
+<br>
+{{userData().age}}
+<br>
+<input type="text" [value]="userData().age" (input)="updateUserData('age', $event.target.value)"/>
+<br>
+<br>
+{{userData().email}}
+<br>
+<input type="text" [value]="userData().email" (input)="updateUserData('email', $event.target.value)"/>
 
 
