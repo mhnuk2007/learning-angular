@@ -1,0 +1,14 @@
+<h2>
+  Updating Object
+</h2>
+
+{{userData().name}}
+<br>
+<!--
+<input type="text" [value]="userData().name" (input)="userData().name=$event.target.value"/>
+//working but incorrect way
+-->
+
+<input type="text" [value]="userData().name" (input)="updateUserData('name', $event.target.value)"/>
+
+
