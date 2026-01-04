@@ -1,5 +1,17 @@
 <h1>Data passing from parent to child component</h1>
+<input type="text"
+[value]="tempUser()"
+(input)="tempUser.set($event.target.value)"
+placeholder="Enter new user..."
+/>
+<button (click)="addUser()">Add User</button>
+<br>
+<br>
 @for(user of users(); track user){
-<app-child [user]="user"/>
+<app-child
+[user]="user"
+(select)="selectUser($event)"
+(delete)="deleteUser()"
+/>
 }
 <router-outlet />
