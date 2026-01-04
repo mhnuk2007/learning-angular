@@ -1,6 +1,19 @@
 # TodoList
+# ToDo App
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+A modern, responsive ToDo list application built with Angular and Tailwind CSS. This project demonstrates the use of Angular Signals and the new control flow syntax.
+
+## Features
+
+- 📝 **Task Management**: Add and delete tasks easily.
+- 🎨 **Modern UI**: Clean interface styled with Tailwind CSS.
+- ⚡ **Reactive State**: Powered by Angular Signals for state management.
+- 🔄 **New Control Flow**: Utilizes `@for` for efficient list rendering.
+
+## Project Info
+
+This project was generated using Angular CLI version 21.0.4.
 
 ## Development server
 
