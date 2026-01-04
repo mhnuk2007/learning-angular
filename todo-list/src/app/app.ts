@@ -5,8 +5,20 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('todo-list');
+  title = signal('');
+  tasks = signal([{ id: 0, title: 'Team Lunch', completed: false }]);
+  addTask() {
+    console.log(this.title());
+    this.tasks.update((data) => [
+      ...data,
+      { id: data.length, title: this.title(), completed: false },
+    ]);
+    this.title.set('');
+  }
+  deleteTask(id: number) {
+    this.tasks.update((data) => data.filter((task) => task.id !== id));
+  }
 }
