@@ -1,21 +1,23 @@
-/* Styles specific to AppComponent (parent) */
-ul {
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.selected-user {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #34495e;
+}
+
+.user-list {
   list-style: none;
   padding: 0;
-}
-
-h1 {
-  margin-bottom: 15px;
-}
-
-br {
-  line-height: 1.5;
-}
-
-input + button {
-  margin-left: 10px;
-}
-
-.router-outlet {
-  margin-top: 20px;
+  margin: 0;
 }

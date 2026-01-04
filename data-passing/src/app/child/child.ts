@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class Child {
   @Input() user: string|undefined;
+  @Input() selectedUser: string|undefined;
 
   @Output() select = new EventEmitter<string>();
   @Output() delete = new EventEmitter<string>();

@@ -1,17 +1,29 @@
-<h1>Data passing from parent to child component</h1>
-<input type="text"
-[value]="tempUser()"
-(input)="tempUser.set($event.target.value)"
-placeholder="Enter new user..."
-/>
-<button (click)="addUser()">Add User</button>
-<br>
-<br>
-@for(user of users(); track user){
-<app-child
-[user]="user"
-(select)="selectUser($event)"
-(delete)="deleteUser()"
-/>
-}
-<router-outlet />
+<div class="container">
+  <h1>Data passing from parent to child component</h1>
+    <h2 class="selected-user">
+    Selected User: <span>{{ selectedUser() }}</span>
+  </h2>
+
+  <div class="input-section">
+    <input
+      type="text"
+      [value]="tempUser()"
+      (input)="tempUser.set($event.target.value)"
+      placeholder="Enter new user..."
+    />
+    <button (click)="addUser()">Add User</button>
+  </div>
+
+  <ul class="user-list">
+    @for(user of users(); track user){
+      <app-child
+        [user]="user"
+        [selectedUser]="selectedUser()"
+        (select)="selectUser($event)"
+        (delete)="deleteUser()"
+      ></app-child>
+    }
+  </ul>
+
+  <router-outlet></router-outlet>
+</div>

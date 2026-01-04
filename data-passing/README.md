@@ -1,10 +1,29 @@
 # DataPassing
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+This project demonstrates data passing between parent and child components in Angular 21 using signals and event emitters.
+
+The application allows you to:
+
+- Add new users to a dynamic list
+- Select a user from the list
+- Delete the selected user
+- Highlight the currently selected user
+- Explore parent → child data binding (@Input)
+- Explore child → parent event communication (@Output)
+
+This project was generated using Angular CLI version 21.0.4.
+
+## Features
+
+- **Signals**: Reactive state management with Angular 21 signals.
+- **Parent → Child**: Passing data using `@Input()`.
+- **Child → Parent**: Event emission using `@Output()` and `EventEmitter`.
+- **Dynamic Lists**: Render users dynamically using `@for` in templates.
+- **UI/UX**: Selected user is visually highlighted; buttons styled for clear actions.
 
 ## Development server
 
-To start a local development server, run:
+Start a local development server:
 
 ```bash
 ng serve

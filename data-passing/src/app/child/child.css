@@ -1,28 +1,44 @@
-/* Styles specific to ChildComponent */
 li {
-  background-color: #ecf0f1;
-  padding: 8px 12px;
-  margin-bottom: 5px;
-  border-radius: 4px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  background-color: #ecf0f1;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
 }
 
-li button {
-  background-color: #e74c3c;
+li:hover {
+  background-color: #dfe6e9;
+}
+
+li.selected {
+  background-color: #a2d5ab;
+  font-weight: bold;
+}
+
+.buttons button {
+  margin-left: 5px;
   padding: 4px 10px;
   font-size: 12px;
+  border-radius: 4px;
 }
 
-li button:hover {
-  background-color: #c0392b;
-}
-
-li button:first-of-type {
+.select-btn {
   background-color: #2ecc71;
+  color: white;
 }
 
-li button:first-of-type:hover {
+.select-btn:hover {
   background-color: #27ae60;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
 }

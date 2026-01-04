@@ -1,5 +1,8 @@
-<li>
-{{user}}
-<button (click)="onSelect()">Select</button>
-<button (click)="onDelete()">Delete</button>
+
+<li [class.selected]="user === selectedUser">
+  <span>{{ user }}</span>
+  <div class="buttons">
+    <button class="select-btn" (click)="onSelect()">Select</button>
+    <button class="delete-btn" (click)="onDelete()">Delete</button>
+  </div>
 </li>
