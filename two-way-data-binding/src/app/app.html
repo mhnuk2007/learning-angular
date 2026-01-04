@@ -1,12 +1,29 @@
-<h1>Two Way Data Binding</h1>
-<app-with-signal/>
-<hr/>
-<app-with-ngmodel/>
-<hr/>
-<app-updating-object/>
-<hr/>
-<app-signals-getter-setter/>
-<hr/> 
+<div class="container">
+  <h1 class="page-title">Two-Way Data Binding (Angular)</h1>
 
+  <!-- With Signal -->
+  <section class="card">
+    <h2 class="card-title">Two-Way Binding with Signals</h2>
+    <app-with-signal></app-with-signal>
+  </section>
 
-<router-outlet />
+  <!-- With ngModel -->
+  <section class="card">
+    <h2 class="card-title">Two-Way Binding with ngModel</h2>
+    <app-with-ngmodel></app-with-ngmodel>
+  </section>
+
+  <!-- Updating Object -->
+  <section class="card">
+    <h2 class="card-title">Updating Object using Signals</h2>
+    <app-updating-object></app-updating-object>
+  </section>
+
+  <!-- Getter / Setter -->
+  <section class="card">
+    <h2 class="card-title">Signals Getter & Setter</h2>
+    <app-signals-getter-setter></app-signals-getter-setter>
+  </section>
+
+  <router-outlet></router-outlet>
+</div>
