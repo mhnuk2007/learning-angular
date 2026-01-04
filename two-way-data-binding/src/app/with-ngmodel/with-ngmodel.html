@@ -1,0 +1,12 @@
+<h2>using ngModel</h2>
+<p>
+  {{age}}
+
+</p>
+<input type="text" [(ngModel)]="age"/>
+
+<h2>Expose ngModel</h2>
+{{grade}}
+<br>
+<input type="text" [ngModel]="grade" (ngModelChange)="grade=$event" />
+

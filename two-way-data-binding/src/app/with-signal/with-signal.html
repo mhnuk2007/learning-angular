@@ -1,0 +1,6 @@
+<h2>using signals</h2>
+
+{{name()}}
+<br>
+<input type="text" [value]="name()" (input)="name.set($event.target.value)"/>
+
