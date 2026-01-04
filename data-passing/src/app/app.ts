@@ -11,5 +11,5 @@ import { Child } from "./child/child";
 export class App {
   protected readonly title = signal('data-passing');
 
-  user = signal('Mohan Lal');
+  users = signal(['honey', 'sunny', 'hitesh', 'sandeep', 'mukesh']);
 }

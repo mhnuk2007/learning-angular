@@ -1,3 +1,5 @@
 <h1>Data passing from parent to child component</h1>
-<app-child [user]="user()"/>
+@for(user of users(); track user){
+<app-child [user]="user"/>
+}
 <router-outlet />
