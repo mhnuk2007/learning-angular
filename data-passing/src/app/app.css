@@ -1,0 +1,21 @@
+/* Styles specific to AppComponent (parent) */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+br {
+  line-height: 1.5;
+}
+
+input + button {
+  margin-left: 10px;
+}
+
+.router-outlet {
+  margin-top: 20px;
+}
