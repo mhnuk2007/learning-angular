@@ -1,76 +1,147 @@
-# Angular Control Structures and Styling Demo
+# Angular Control Structures
 
-## Description
+This project demonstrates the new built-in control flow structures in Angular, with examples for `@if`, `@for`, and `@switch`. It also includes examples of global and component-level styling.
 
-This project is a demonstration of fundamental concepts in Angular, focusing on built-in control flow structures and a variety of styling strategies. It is intended as a learning resource for both new and experienced Angular developers.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
 
-The project structure and documentation are designed to be clear, concise, and easy to follow, drawing inspiration from professional documentation standards.
+## Features
 
-## Styling Architecture
+This project provides examples of the following Angular features:
 
-The project employs a modern and maintainable styling architecture based on **CSS Variables (Custom Properties)**.
+-   **Control Structures**:
+    -   `@if`, `@else`, `@else if` for conditional rendering.
+    -   `@for` for list rendering, including `track` and contextual variables (`$index`, `$count`, `$first`, `$last`, `$even`).
+    -   `@switch` for conditional rendering based on a set of values.
+-   **Styling**:
+    -   **Global Styles**: Located in `src/styles.css`, providing a consistent look and feel across the application.
+    -   **Component Styles**: Scoped to individual components to avoid style conflicts and promote modularity.
+-   **Signals**: Demonstrating state management using Angular Signals in the `User` component.
 
-A global color scheme is defined in `:root` within `src/styles.css`. This allows for easy theme management and ensures a consistent look and feel across the entire application. Components then reference these variables, promoting reusability and simplifying future design updates.
+---
 
-### Global Theme Variables (`src/styles.css`)
-```css
-:root {
-  --primary-color: #1a73e8;
-  --background-color: #f4f4f4;
-  --text-color: #333;
-  /* ... and so on */
+### `@if` / `@else` / `@else if`
+
+The main application component (`app.component`) demonstrates conditional rendering.
+
+**Example:**
+
+```html
+<!-- Simple @if/@else -->
+@if (isLogin()) {
+  <span>Welcome, User!</span>
+  <button (click)="handleLogin(false)">Logout</button>
+} @else {
+  <span>Please login!!!</span>
+  <button (click)="handleLogin(true)">Login</button>
+}
+
+<!-- @if/@else if -->
+@if(status()=="notStarted"){
+  <span>No status</span>
+} @else if (status()=="progress") {
+  <span style="color: orange;">In Progress</span>
+} @else if (status()=="success") {
+  <span style="color: green;">Success</span>
+} @else if (status()=="error") {
+  <span style="color: red;">Error</span>
 }
 ```
 
-This approach combines the power of global theming with the encapsulation of component-specific styles.
+### `@for`
 
-## Component Reference
+The `for-loop.component` demonstrates list rendering with the `@for` block. It also shows how to use contextual variables.
 
-### `app-root`
-The main component of the application.
+**Example:**
 
-| Property      | Description                                                                                                   |
-|---------------|---------------------------------------------------------------------------------------------------------------|
-| **Purpose**   | Acts as the primary container for the application and demonstrates conditional rendering.                         |
-| **Features**  | - **`@if / @else`**: Toggles a login/logout state.<br>- **`@if / @else if`**: Displays a status message based on a selected value. |
-| **Signals**   | - `isLogin`: A boolean signal to track authentication status.<br>- `show`: A boolean signal for toggling visibility.<br>- `status`: A string signal to hold the current status message. |
+```html
+<ul>
+  @for(user of userDetails(); track user.id){
+    <li [style.backgroundColor]="$even?'#ccc':'#ddd'">
+      <span>{{$index+1}}. {{user.name}}</span>
+      @if($first){<span style="color: red;">Admin</span>}
+      @if($last){<span style="color: orange;">Guest</span>}
+    </li>
+  }
+</ul>
+```
 
-### `app-for-loop`
-A component dedicated to demonstrating list rendering.
+### `@switch`
 
-| Property      | Description                                                                                                   |
-|---------------|---------------------------------------------------------------------------------------------------------------|
-| **Purpose**   | To showcase how to render dynamic lists from a collection.                                                      |
-| **Features**  | - **`@for`**: Iterates over collections of primitive types and objects.<br>- **`track`**: Uses a unique key for performance optimization.<br>- **Contextual Variables**: Uses `$index`, `$first`, `$last`, `$even` to apply conditional logic and styles within the loop. |
-| **Signals**   | - `users`: A signal holding an array of strings.<br>- `userDetails`: A signal holding an array of user objects. |
+The `switch-case.component` demonstrates the `@switch` statement.
 
-### `app-switch-case`
-A component for demonstrating multi-conditional rendering.
+**Example:**
 
-| Property      | Description                                                                                                   |
-|---------------|---------------------------------------------------------------------------------------------------------------|
-| **Purpose**   | To show how to render different UI blocks based on a single value.                                              |
-| **Features**  | - **`@switch`**: Selects a template based on the `permission` signal's value.<br>- **`@case`**: Provides the template for a specific value.<br>- **`@default`**: A fallback template if no case matches. |
-| **Signals**   | - `permission`: A string signal that holds the current permission level (`guest`, `user`, `moderator`, `admin`). |
+```html
+@switch (status()) {
+  @case ('notStarted') {
+    <span class="status-badge status-not-started">Not Started</span>
+  }
+  @case ('loading') {
+    <span class="status-badge status-loading">Loading...</span>
+  }
+  @case ('success') {
+    <span class="status-badge status-success">Success</span>
+  }
+  @default {
+    <span class="status-badge status-error">Error</span>
+  }
+}
+```
 
-## Setup and Development
+---
 
-1.  **Install Dependencies**:
-    ```bash
-    npm install
-    ```
-2.  **Run Development Server**:
-    ```bash
-    ng serve
-    ```
-    Navigate to `http://localhost:4200/`.
+## Development server
 
-3.  **Build for Production**:
-    ```bash
-    ng build
-    ```
+To start a local development server, run:
 
-4.  **Run Unit Tests**:
-    ```bash
-    ng test
-    ```
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
