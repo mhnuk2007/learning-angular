@@ -1,0 +1,19 @@
+<input type="text" (input)="handleEvent($event.type)" /><br/>
+<input type ="text" (change)="handleEvent($event.type)"/><br/>
+<button (click)="handleEvent($event.type)">Click me</button>
+<br/>
+
+<div class = "div1" (mouseenter)="handleEvent($event.type)">
+
+</div>
+<div class = "div2" (mouseleave)="handleEvent($event.type)">
+
+</div>
+<br>
+<hr/>
+<br>
+
+<app-events/>
+
+
+<router-outlet />
