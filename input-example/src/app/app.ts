@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {User} from './user';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,14 +7,29 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
 })
 export class App {
-  name:string = '';
-  school:string='';
+  // Classic variables
+  name: string = '';
+  school: string = '';
 
-  updateName(val: string){
-    this.name=val;
+  // Signals
+  city = signal<string>('');
+  country = signal<string>('');
+
+  // Classic method
+  updateName(val: string) {
+    this.name = val;
   }
 
-  updateSchool(e: Event|any){
+  updateSchool(e: Event | any) {
     this.school = e.target.value;
+  }
+
+  // Optional: signal update method
+  updateCity(val: string) {
+    this.city.set(val);
+  }
+
+  updateCountry(val: string) {
+    this.country.set(val);
   }
 }

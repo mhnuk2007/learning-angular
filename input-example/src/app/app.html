@@ -1,11 +1,24 @@
-
+<!-- Name (classic property binding) -->
 <input type="text" (input)="updateName($event.target.value)" placeholder="Enter your name..."/>
 <br>
-Your name: {{name}}
+Your name: {{ name }}
 <br>
+
+<!-- School (classic property binding) -->
 <input type="text" (input)="updateSchool($event)"/>
 <br>
-Your school:
+Your school: {{ school }}
 <br>
-{{school}}
+
+<!-- City (Signals) -->
+<input type="text" (input)="city.set($event.target.value)" placeholder="Enter your city..."/>
+<br>
+Your city: {{ city() }}
+<br>
+
+<!-- Country (Signals) -->
+<input type="text" (input)="country.set($event.target.value)" placeholder="Enter your country..."/>
+<br>
+Your country: {{ country() }}
+
 <router-outlet />
