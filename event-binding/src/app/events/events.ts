@@ -17,4 +17,14 @@ export class Events {
     console.log(e);
   }
 
+  user = '';
+
+  updateUser(val: string){
+    this.user = val;
+  }
+
+  handleSubmit(e: any){
+    e.preventDefault();
+    console.log('form submitted');
+  }
 }
