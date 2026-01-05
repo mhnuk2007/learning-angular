@@ -1,1 +1,22 @@
-<p>header works!</p>
+<header class="header">
+  <div class="logo">App</div>
+
+  <nav>
+    <ul class="nav-list">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active">About</a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="active">Profile</a>
+      </li>
+      <li>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+    </ul>
+  </nav>
+</header>
