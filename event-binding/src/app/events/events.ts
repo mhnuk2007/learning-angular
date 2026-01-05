@@ -13,4 +13,8 @@ export class Events {
     this.count++;
   }
 
+  showEvent(e: Event){
+    console.log(e);
+  }
+
 }
