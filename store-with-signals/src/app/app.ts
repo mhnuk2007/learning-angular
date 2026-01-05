@@ -1,6 +1,8 @@
+
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CounterService} from './core/store/counter';
+import { UserService } from './core/store/user';
+//import { CounterService} from './core/store/counter';
 
 
 @Component({
@@ -12,5 +14,6 @@ import { CounterService} from './core/store/counter';
 export class App {
   protected readonly title = signal('store-with-signals');
 
-  constructor(public counterService: CounterService){}
+  //constructor(public counterService: CounterService){}
+  constructor(public userService: UserService){}
 }
