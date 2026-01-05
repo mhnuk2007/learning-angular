@@ -12,12 +12,13 @@ export class App {
 
   btnDisabled=false;
   username:string='honey';
+  user = signal('Honey Chauhan')
   inputReadOnly=false;
   selectCheckBox= false;
    imageUrl = 'https://avatars.githubusercontent.com/u/128143049';
   toggleDisabled(){
     this.btnDisabled=!this.btnDisabled;
-  } 
+  }
   toggleReadOnly(){
     this.inputReadOnly=!this.inputReadOnly;
   }

@@ -14,8 +14,13 @@
 <br>
 <img [src]="imageUrl" />
 
-
+<br>
+<br>
 <span>
     {{username}}
 </span>
+<p [innerText]="username + ' chauhan'"  ></p>
+<p [innerText]="user()"></p>
+
+
 <router-outlet />
