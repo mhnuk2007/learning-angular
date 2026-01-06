@@ -12,7 +12,9 @@ export class Home {
   constructor(private router: Router){}
 
   goToProfile(){
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/profile'], {
+      queryParams: this.userData()
+    });
   }
 
   userData = signal({
