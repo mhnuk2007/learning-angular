@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -14,5 +14,11 @@ export class Home {
   goToProfile(){
     this.router.navigate(['/profile']);
   }
+
+  userData = signal({
+    id: 1,
+    name: 'Honey',
+    age: 9
+  });
 
 }
