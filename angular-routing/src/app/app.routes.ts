@@ -8,7 +8,9 @@ import { PrivateSetting } from './pages/private-setting/private-setting';
 
 export const routes: Routes = [
   {path: '', component: Home},
-  {path: 'user', component: User,
+  {path: 'user',
+    //component: User,
+    loadComponent: () => import('./pages/user/user').then(c => c.User),
     children: [
       {path: '', redirectTo: 'profile', pathMatch: 'full'},
       {path: 'profile', component: Profile},
