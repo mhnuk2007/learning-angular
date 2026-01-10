@@ -17,6 +17,11 @@ export class Home {
     });
   }
 
+  goToProfile1(){
+    this.router.navigate(['/profile', this.userData().id]);
+  }
+
+
   userData = signal({
     id: 1,
     name: 'Honey',
