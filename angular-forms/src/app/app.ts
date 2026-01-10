@@ -1,12 +1,35 @@
+import { JsonPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ReactiveFormsModule, JsonPipe],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('angular-forms');
+  userSignal = signal({
+    name: '',
+    email: '',
+  });
+
+  form: any;
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      name: [''],
+      email: [''],
+    });
+
+    this.form.valueChanges.subscribe((value: any) => {
+      this.userSignal.set(value);
+    });
+  }
+
+  submitForm(){
+    console.log(
+      `Name: ${this.userSignal().name}, Email:${this.userSignal().email}`
+    );
+  }
 }
