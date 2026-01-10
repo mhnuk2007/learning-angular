@@ -1,12 +1,25 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { Field, form } from '@angular/forms/signals';
 
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [CommonModule, Field],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-forms');
+  // form model based on signals
+  loginModel = signal({
+    email: '',
+    password: ''
+  })
+
+  // create form from signal model
+  loginForm = form(this.loginModel);
+
+  submitForm(){
+    console.log(this.loginModel())
+  }
 }

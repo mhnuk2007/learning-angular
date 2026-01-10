@@ -1,1 +1,17 @@
 <h2>Signal forms (experimental)</h2>
+
+<h3>Login form based on signals</h3>
+<input
+type="email"
+placeholder="Enter your email..."
+[field]="loginForm.email"
+/>
+<input
+type="password"
+placeholder="Enter your password..."
+[field]="loginForm.password"
+/>
+<button (click)="submitForm()">Submit</button>
+<br>
+<br>
+<pre>{{ loginModel() | json }}</pre>
