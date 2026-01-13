@@ -11,7 +11,19 @@ import { User } from './models/user';
   styleUrl: './app.css'
 })
 export class App {
-  userService = inject(UserService);
+  // userService = inject(UserService);
 
-  users = toSignal<User[]>(this.userService.getUsers());
+  // users = toSignal<User[]>(this.userService.getUsers());
+
+  users: User[] = [];
+
+  constructor(private userService: UserService){}
+
+  ngOnInit(){
+    this.userService.getUsers().subscribe((data)=>{
+      this.users = data;
+    });
+  }
+
+
 }

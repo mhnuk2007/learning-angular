@@ -1,9 +1,8 @@
 <h3>
   User List
 </h3>
-
 <ul>
-  @for(user of users(); track user.id){
+  @for(user of users; track user.id){
   <li> {{user.id}} -  <strong>{{user.name}}</strong> - ({{user.email}}) - {{user.isActive}}</li>
 
   }
