@@ -1,7 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
 import { UserService } from './services/user-service';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { User } from './models/user';
 
 @Component({
@@ -15,15 +13,34 @@ export class App {
 
   // users = toSignal<User[]>(this.userService.getUsers());
 
-  users: User[] = [];
+  users = signal<User[]>([]);
+  name = signal<string>('');
+  email = signal<string>('');
+
 
   constructor(private userService: UserService){}
 
   ngOnInit(){
-    this.userService.getUsers().subscribe((data)=>{
-      this.users = data;
-    });
-  }
+    this.loadUsers();
 
+  }
+loadUsers(){
+      this.userService.getUsers().subscribe((data)=>{
+      this.users.set(data);
+    });}
+
+    submitForm(){
+      const payload: User = {
+        name: this.name(),
+        email: this.email(),
+        isActive: false
+      }
+      this.userService.addUser(payload).subscribe(()=>{
+        this.loadUsers();
+        this.name.set('');
+        this.email.set('');
+
+      });
+    }
 
 }
