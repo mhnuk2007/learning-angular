@@ -11,7 +11,7 @@
   placeholder="Enter your email..."
 />
 
-<button (click)="submitForm()">@if (editingUpdateId()!==null){Update} @else {Add}</button>
+<button (click)="submitForm()">{{editingUpdateId() ? 'Update' : 'Submit'}}</button>
 <h3>User List</h3>
 <ul>
   @for(user of users(); track user.id){
