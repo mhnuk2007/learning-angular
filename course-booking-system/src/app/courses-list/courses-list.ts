@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './courses-list.css',
 })
 export class CoursesList {
+  title = 'Available Courses';
 
 }
