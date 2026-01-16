@@ -9,6 +9,7 @@ import { CourseCard } from "../course-card/course-card";
 })
 export class CoursesList {
   title = 'Available Courses';
+  wishedCourses: any[] = [];
 
   ngOnInit(): void {
     console.log('CoursesList component initialized.');
@@ -23,6 +24,11 @@ export class CoursesList {
   onCourseBooked(course: any): void {
     alert('Course booked successfully: ' + course.name);
   };
+
+  addToWishList(course: any): void {
+    this.wishedCourses.push(course);
+
+  }
 
 
 

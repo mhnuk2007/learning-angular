@@ -1,31 +1,76 @@
+/* Page title */
 .page-title {
   margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #111827;
 }
+
+/* Courses grid */
 .courses-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.2rem;
+/* Wishlist container */
+.wishlist-container {
+  margin-bottom: 2rem;
+  padding: 1.2rem 1.4rem;
+  background: linear-gradient(135deg, #f0f9ff, #f8fafc);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
 }
 
+/* Wishlist header */
+.wishlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
 
-.button {
+/* Wishlist title */
+.wishlist-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Count badge */
+.wishlist-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Wishlist items */
+.wishlist-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Individual wishlist pill */
+.wishlist-item {
   background-color: #2563eb;
   color: #ffffff;
-  padding: 0.45rem 0.9rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.button:hover {
-  background-color: #1e40af;
+.wishlist-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
 }
-
-

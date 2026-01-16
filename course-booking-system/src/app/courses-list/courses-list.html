@@ -1,8 +1,30 @@
 <h2 class="page-title">{{ title }}</h2>
 
-<div class="courses-wrapper">
-  @for(course of courses; track course.id){
-    <app-course-card [course]="course" (courseBooked)="onCourseBooked($event)" />
+@if (wishedCourses.length > 0) {
+  <section class="wishlist-container">
+    <div class="wishlist-header">
+      <h3 class="wishlist-title">My Wishlist</h3>
+      <span class="wishlist-count">
+        {{ wishedCourses.length }} item(s)
+      </span>
+    </div>
 
+    <ul class="wishlist-items">
+      @for (wishedCourse of wishedCourses; track wishedCourse.id) {
+        <li class="wishlist-item">
+          {{ wishedCourse.name }}
+        </li>
+      }
+    </ul>
+  </section>
+}
+
+<section class="courses-wrapper">
+  @for (course of courses; track course.id) {
+    <app-course-card
+      [course]="course"
+      (courseBooked)="onCourseBooked($event)"
+      (wishListed)="addToWishList($event)" />
   }
-</div>
+</section>
+
