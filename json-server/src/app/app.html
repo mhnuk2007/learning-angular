@@ -9,6 +9,7 @@
   [value]="email()"
   (input)="email.set($event.target.value)"
   placeholder="Enter your email..."
+  
 />
 
 <button (click)="submitForm()">{{editingUpdateId() ? 'Update' : 'Submit'}}</button>
