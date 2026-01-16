@@ -2,37 +2,10 @@
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
 }
-
 .courses-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-}
-
-.course-item {
-  display: flex;
-  gap: 1rem;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.course-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.course-image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-}
-
-.course-content {
-  flex: 1;
 }
 
 h3 {
@@ -40,51 +13,6 @@ h3 {
   font-size: 1.2rem;
 }
 
-.description {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 0.6rem;
-}
-
-.meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  margin-bottom: 0.6rem;
-}
-
-.price {
-  font-weight: 600;
-  color: #111827;
-}
-
-.date {
-  color: #6b7280;
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.75rem;
-  border-radius: 4px;
-  margin-bottom: 0.6rem;
-}
-
-.special-offer-badge {
-  background-color: #d1fae5;
-  color: #065f46;
-}
-
-.on-sale-badge {
-  font-weight: bold;
-  background-color: #042802;
-  color: #f7fafc;
-}
-
-.sold-out {
-  background-color: #fee2e2;
-  color: #b91c1c;
-}
 
 .button {
   background-color: #2563eb;
@@ -99,3 +27,5 @@ h3 {
 .button:hover {
   background-color: #1e40af;
 }
+
+

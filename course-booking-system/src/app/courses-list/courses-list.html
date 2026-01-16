@@ -2,39 +2,7 @@
 
 <div class="courses-wrapper">
   @for(course of courses; track course.id){
-  <div class="course-item">
-    <img
-      class="course-image"
-      [src]="course.imgUrl"
-      alt="{{ course.name }} logo"
-    />
+    <app-course-card [course]="course" (courseBooked)="onCourseBooked($event)" />
 
-    <div class="course-content">
-      <h3>{{ course.name }}</h3>
-      <p class="description">{{ course.description }}</p>
-
-      <div class="meta">
-        <span class="price">{{ course.price | currency: 'USD' }}</span>
-        <span class="date">{{ course.date | date:'shortDate' }}</span>
-      </div>
-      @if(course.price<50){
-        <div class="Special-offer-badge">Special Offer!</div>
-      }
-      @if(course.onSale){
-        <div class="on-sale-badge">On Sale!</div>
-      }
-      <span [hidden]="!course.soldOut">
-        Sold Out
-      </span>
-
-      <button
-        class="button"
-        (click)="viewDetails(course.name)"
-      >
-        View details
-      </button>
-    </div>
-  </div>
   }
-
 </div>
