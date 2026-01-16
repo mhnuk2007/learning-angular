@@ -19,6 +19,7 @@ export class CoursesList {
     {id: 2, name: 'Advance Angular', description:'Deep dive into advanced Angular topics.', price: 99, date: '2025-04-15', soldOut: true, onSale: false, imgUrl:'angularlogo.svg' },
     {id: 3, name: 'Introduction to RxJS', description:'Learn reactive programming with RxJS.', price: 39, date: '2025-05-10', soldOut: false, onSale: false, imgUrl:'rxjs.png' },
   ]
+  
 
   viewDetails(title: string): void {
     alert(`You have selected the course: ${title}`);
