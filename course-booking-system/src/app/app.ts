@@ -4,7 +4,7 @@ import { CoursesList } from "./courses-list/courses-list";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CoursesList],
+  imports: [CoursesList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

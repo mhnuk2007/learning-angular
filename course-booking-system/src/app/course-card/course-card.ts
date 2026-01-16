@@ -1,5 +1,6 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Course } from '../model/course.model';
 
 @Component({
   selector: 'app-course-card',
@@ -8,9 +9,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './course-card.css',
 })
 export class CourseCard {
-  @Input() course: any;
-  @Output() courseBooked = new EventEmitter<any>();
-  @Output() wishListed = new EventEmitter<any>();
+  @Input() course?: Course;
+  @Output() courseBooked = new EventEmitter<Course>();
+  @Output() wishListed = new EventEmitter<Course>();
 
   onBookCourse(): void {
     this.courseBooked.emit(this.course);

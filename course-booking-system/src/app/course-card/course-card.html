@@ -1,59 +1,50 @@
 <div class="course-card">
-
-  <!-- Left: Course Logo -->
+  <!-- Image -->
   <div class="image-wrapper">
-    <img
-      class="course-image"
-      [src]="course.imgUrl"
-      alt="{{ course.name }} logo"
-    />
+    <img [src]="course?.imgUrl" alt="{{ course?.title }} logo" class="course-image"/>
   </div>
 
-  <!-- Right: Course Details -->
+  <!-- Content -->
   <div class="course-content">
 
-    <!-- Title + Badges -->
+    <!-- Header: title + badges -->
     <div class="header">
-      <h3 class="course-title">{{ course.name }}</h3>
-
+      <h3 class="course-title">{{ course?.title }}</h3>
       <div class="badges">
-        @if (course.price < 50) {
+        @if(course && course.price < 50){
           <span class="badge special-offer-badge">Special Offer</span>
         }
-        @if (course.onSale) {
+        @if(course?.onSale){
           <span class="badge on-sale-badge">On Sale</span>
         }
-        @if (course.soldOut) {
+        @if(course?.soldOut){
           <span class="badge sold-out">Sold Out</span>
         }
       </div>
     </div>
 
     <!-- Description -->
-    <p class="description">{{ course.description }}</p>
+    <p class="description">{{ course?.description }}</p>
 
     <!-- Meta -->
     <div class="meta">
-      <span class="price">{{ course.price | currency: 'USD' }}</span>
-      <span class="date">{{ course.date | date:'shortDate' }}</span>
+      <span class="price">{{ course?.price | currency: 'USD' }}</span>
+      <span class="date">{{ course?.date | date:'shortDate' }}</span>
     </div>
 
     <!-- Actions -->
     <div class="actions">
-      <button
-        class="button secondary"
-        (click)="addToWishList()"
-        [disabled]="course.soldOut">
+      <button class="button secondary"
+              (click)="addToWishList()"
+              [disabled]="course?.soldOut">
         Add to Wishlist
       </button>
 
-      <button
-        class="button primary"
-        (click)="onBookCourse()"
-        [disabled]="course.soldOut">
+      <button class="button primary"
+              (click)="onBookCourse()"
+              [disabled]="course?.soldOut">
         Book Course
       </button>
     </div>
-
   </div>
 </div>
