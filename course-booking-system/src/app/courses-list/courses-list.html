@@ -1,19 +1,61 @@
-<h2>{{title}}</h2>
-<div class="course-item">
-  <h3>{{courses[0].name}}</h3>
-  <p>{{courses[0].description}}</p>
-  <p>{{courses[0].price}}</p>
-  <p>{{courses[0].date}}</p>
-  <p [hidden]="!courses[0].soldOut">Sold Out</p>
-  <img [src]="courses[0].imgUrl" alt="{{courses[0].name}} logo" width="100">
-  <button (click)="viewDetails(courses[0].name)" class="button">View details</button>
-</div>
-<div class="course-item">
-  <h3>{{courses[1].name}}</h3>
-  <p>{{courses[1].description}}</p>
-  <p>{{courses[1].price}}</p>
-  <p>{{courses[1].date}}</p>
-  <p [hidden]="!courses[1].soldOut">Sold Out</p>
-  <img [src]="courses[1].imgUrl" alt="{{courses[1].name}} logo" width="100">
-  <button (click)="viewDetails(courses[1].name)" class="button">View details</button>
+<h2 class="page-title">{{ title }}</h2>
+
+<div class="courses-wrapper">
+  <div class="course-item">
+    <img
+      class="course-image"
+      [src]="courses[0].imgUrl"
+      alt="{{ courses[0].name }} logo"
+    />
+
+    <div class="course-content">
+      <h3>{{ courses[0].name }}</h3>
+      <p class="description">{{ courses[0].description }}</p>
+
+      <div class="meta">
+        <span class="price">{{ courses[0].price }}</span>
+        <span class="date">{{ courses[0].date }}</span>
+      </div>
+
+      <span [hidden]="!courses[0].soldOut">
+        Sold Out
+      </span>
+
+      <button
+        class="button"
+        (click)="viewDetails(courses[0].name)"
+      >
+        View details
+      </button>
+    </div>
+  </div>
+
+  <div class="course-item">
+    <img
+      class="course-image"
+      [src]="courses[1].imgUrl"
+      alt="{{ courses[1].name }} logo"
+    />
+
+    <div class="course-content">
+      <h3>{{ courses[1].name }}</h3>
+      <p class="description">{{ courses[1].description }}</p>
+
+      <div class="meta">
+        <span class="price">{{ courses[1].price }}</span>
+        <span class="date">{{ courses[1].date }}</span>
+      </div>
+
+      <span [hidden]="!courses[1].soldOut">
+        Sold Out
+      </span>
+
+      <button
+        class="button"
+        (click)="viewDetails(courses[1].name)"
+      >
+        View details
+      </button>
+    </div>
+  </div>
 </div>
