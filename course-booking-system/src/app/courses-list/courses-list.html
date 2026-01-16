@@ -16,7 +16,9 @@
         <span class="price">{{ courses[0].price }}</span>
         <span class="date">{{ courses[0].date }}</span>
       </div>
-
+      @if(courses[0].price<50){
+        <div class="Special-offer-badge">Special Offer!</div>
+      }
       <span [hidden]="!courses[0].soldOut">
         Sold Out
       </span>
@@ -49,6 +51,10 @@
       <span [hidden]="!courses[1].soldOut">
         Sold Out
       </span>
+
+      @if(courses[1].price<50){
+        <div class="Special-offer-badge">Special Offer!</div>
+      }
 
       <button
         class="button"
