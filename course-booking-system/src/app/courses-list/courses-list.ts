@@ -1,8 +1,9 @@
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-courses-list',
-  imports: [],
+  imports: [CurrencyPipe, DatePipe],
   templateUrl: './courses-list.html',
   styleUrl: './courses-list.css',
 })

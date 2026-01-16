@@ -14,8 +14,8 @@
       <p class="description">{{ course.description }}</p>
 
       <div class="meta">
-        <span class="price">{{ course.price }}</span>
-        <span class="date">{{ course.date }}</span>
+        <span class="price">{{ course.price | currency: 'USD' }}</span>
+        <span class="date">{{ course.date | date:'shortDate' }}</span>
       </div>
       @if(course.price<50){
         <div class="Special-offer-badge">Special Offer!</div>
