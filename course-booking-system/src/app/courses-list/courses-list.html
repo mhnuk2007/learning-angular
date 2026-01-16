@@ -1,67 +1,37 @@
 <h2 class="page-title">{{ title }}</h2>
 
 <div class="courses-wrapper">
+  @for(course of courses; track course.id){
   <div class="course-item">
     <img
       class="course-image"
-      [src]="courses[0].imgUrl"
-      alt="{{ courses[0].name }} logo"
+      [src]="course.imgUrl"
+      alt="{{ course.name }} logo"
     />
 
     <div class="course-content">
-      <h3>{{ courses[0].name }}</h3>
-      <p class="description">{{ courses[0].description }}</p>
+      <h3>{{ course.name }}</h3>
+      <p class="description">{{ course.description }}</p>
 
       <div class="meta">
-        <span class="price">{{ courses[0].price }}</span>
-        <span class="date">{{ courses[0].date }}</span>
+        <span class="price">{{ course.price }}</span>
+        <span class="date">{{ course.date }}</span>
       </div>
-      @if(courses[0].price<50){
+      @if(course.price<50){
         <div class="Special-offer-badge">Special Offer!</div>
       }
-      <span [hidden]="!courses[0].soldOut">
+      <span [hidden]="!course.soldOut">
         Sold Out
       </span>
 
       <button
         class="button"
-        (click)="viewDetails(courses[0].name)"
+        (click)="viewDetails(course.name)"
       >
         View details
       </button>
     </div>
   </div>
+  }
 
-  <div class="course-item">
-    <img
-      class="course-image"
-      [src]="courses[1].imgUrl"
-      alt="{{ courses[1].name }} logo"
-    />
-
-    <div class="course-content">
-      <h3>{{ courses[1].name }}</h3>
-      <p class="description">{{ courses[1].description }}</p>
-
-      <div class="meta">
-        <span class="price">{{ courses[1].price }}</span>
-        <span class="date">{{ courses[1].date }}</span>
-      </div>
-
-      <span [hidden]="!courses[1].soldOut">
-        Sold Out
-      </span>
-
-      @if(courses[1].price<50){
-        <div class="Special-offer-badge">Special Offer!</div>
-      }
-
-      <button
-        class="button"
-        (click)="viewDetails(courses[1].name)"
-      >
-        View details
-      </button>
-    </div>
-  </div>
 </div>
