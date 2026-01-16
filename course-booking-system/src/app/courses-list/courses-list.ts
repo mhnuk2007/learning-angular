@@ -9,4 +9,9 @@ import { Component } from '@angular/core';
 export class CoursesList {
   title = 'Available Courses';
 
+  courses = [
+    {id: 1, name: 'Introduction to Angular', description:'Learn the basics of Angular framwork.', price: 49, date: '2025-03-01' },
+    {id: 2, name: 'Advance Angular', description:'Deep dive into advanced Angular topics.', price: 99, date: '2025-04-15' },
+  ]
+
 }
