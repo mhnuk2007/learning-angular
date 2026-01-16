@@ -76,8 +76,9 @@ h3 {
 }
 
 .on-sale-badge {
-  background-color: #e0f2fe;
-  color: #0369a1;
+  font-weight: bold;
+  background-color: #042802;
+  color: #f7fafc;
 }
 
 .sold-out {
