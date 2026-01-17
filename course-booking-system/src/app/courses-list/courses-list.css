@@ -1,26 +1,34 @@
 /* Page title */
 .page-title {
-  margin-bottom: 1.5rem;
-  font-size: 1.9rem;
-  font-weight: 600;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
   color: #111827;
+  text-align: center;
 }
 
 /* Courses grid */
 .courses-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
 /* Wishlist container */
 .wishlist-container {
-  margin-bottom: 2rem;
-  padding: 1.2rem 1.4rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 2rem;
   background: linear-gradient(135deg, #f0f9ff, #f8fafc);
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wishlist-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* Wishlist header */
@@ -28,25 +36,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 /* Wishlist title */
 .wishlist-title {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #0f172a;
 }
 
 /* Count badge */
 .wishlist-count {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   background-color: #e0f2fe;
   color: #0369a1;
+  text-transform: uppercase;
 }
 
 /* Wishlist items */
@@ -56,21 +65,37 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 /* Individual wishlist pill */
 .wishlist-item {
   background-color: #2563eb;
   color: #ffffff;
-  padding: 0.35rem 0.7rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .wishlist-item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* Course wrapper styling (optional if wrapping individual courses) */
+.course-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-wrapper:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
