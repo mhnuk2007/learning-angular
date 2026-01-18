@@ -1,34 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CourseCard } from "../course-card/course-card";
 import { Course } from '../model/course.model';
 import { CourseService } from '../services/course';
-import { JsonPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-courses-list',
-  imports: [CourseCard, JsonPipe],
+  imports: [CourseCard],
   templateUrl: './courses-list.html',
   styleUrl: './courses-list.css',
 })
-export class CoursesList {
+export class CoursesList implements OnInit {
   title = 'Available Courses';
-  courses: Course[] = [];
+  courses = signal<Course[]>([]);
+  bookedCourses: Course[] = [];
   wishedCourses: Course[] = [];
-  constructor(private courseService: CourseService){}
+  constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
     this.loadCourses();
     console.log('CoursesList component initialized.');
   }
 
-  loadCourses(){
+  loadCourses() {
     console.log('Loading courses...');
     return this.courseService.getCourses().subscribe({
-      next: (data)=>{
-        this.courses = data;
+      next: (data) => {
+        this.courses.set(data) ;
         console.log('Courses loaded successfully.');
       },
-      error: (error)=>{
+      error: (error) => {
         console.error('Error loading courses:', error);
 
       }

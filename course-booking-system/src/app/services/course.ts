@@ -14,6 +14,10 @@ export class CourseService {
   getCourses(): Observable<Course[]>{
       return this.http.get<Course[]>(`${this.baseUrl}/courses`);
     }
+    // Fetch a single course by ID
+    getCourseById(id: number): Observable<Course>{
+      return this.http.get<Course>(`${this.baseUrl}/courses/${id}`);
+    }
 
   // Add a new course
   addCourse(course: Course): Observable<Course>{

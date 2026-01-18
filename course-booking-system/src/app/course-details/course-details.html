@@ -1,1 +1,36 @@
-<p>course-details works!</p>
+<div class="course-details">
+  <a routerLink="/courses" class="back-button">
+    ← Back to Courses
+  </a>
+
+  @if (course()) {
+    <h2 class="course-title">{{ course()!.title }}</h2>
+
+    <div class="course-info">
+      <div>
+        <img [src]="course()!.imgUrl" [alt]="course()!.title" class="course-image" />
+      </div>
+
+      <div class="course-meta">
+        <p class="description">{{ course()!.description }}</p>
+
+        <p class="price">{{ course()!.price | currency: 'USD' }}</p>
+        <p class="date">📅 {{ course()!.date | date: 'fullDate' }}</p>
+
+        <div class="badges">
+          @if (course()!.price < 50) {
+            <span class="badge special-offer-badge">Special Offer</span>
+          }
+          @if (course()!.onSale) {
+            <span class="badge on-sale-badge">On Sale</span>
+          }
+          @if (course()!.soldOut) {
+            <span class="badge sold-out">Sold Out</span>
+          }
+        </div>
+      </div>
+    </div>
+  } @else {
+    <p class="loading-message">Loading course details...</p>
+  }
+</div>
