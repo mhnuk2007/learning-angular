@@ -46,7 +46,7 @@ export class SignUpForm implements OnInit {
         id: 0,
         name: this.signUpForm.value.name,
         email: this.signUpForm.value.email,
-        enrolledCourseIds: this.signUpForm.value.courseId
+        enrolledCourseIds: [Number(this.signUpForm.value.courseId)]
 
       }
       this.courseService.addStudent(student).subscribe({

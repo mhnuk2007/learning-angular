@@ -59,7 +59,9 @@
       "id": 0,
       "name": "Sunny",
       "email": "sunny@example.com",
-      "enrolledCourseIds": "3"
+      "enrolledCourseIds": [
+        3
+      ]
     }
   ]
 }
