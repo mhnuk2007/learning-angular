@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, signal } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CourseService } from '../services/course';
 import { Course } from '../model/course.model';
 import { CommonModule } from '@angular/common';
@@ -10,29 +10,55 @@ import { CommonModule } from '@angular/common';
   templateUrl: './sign-up-form.html',
   styleUrl: './sign-up-form.css',
 })
-export class SignUpForm {
+export class SignUpForm implements OnInit {
   signUpForm!: FormGroup;
+  courses = signal<Course[]>([]);
+  submitted = false;
 
-  constructor(private fb: FormBuilder, private courseService: CourseService){}
-  courses = signal<Course[] | null>(null);
+  constructor(
+    private fb: FormBuilder,
+    private courseService: CourseService
+  ) {}
+
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      name:[''],
-      email: [''],
-      enrolledCourseIds:['']
-    })
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      courseId: ['', Validators.required]
+    });
 
     this.courseService.getCourses().subscribe({
       next: (data) => {
         this.courses.set(data);
-        console.log('Courses loaded successfully:', data);
       },
       error: (error) => {
         console.error('Error loading courses:', error);
       }
-    })
+    });
   }
 
+  onSubmit(): void {
+    this.submitted = true;
 
+    if (this.signUpForm.valid) {
+      console.log('Form submitted:', this.signUpForm.value);
+      alert('Sign up successful!');
+      this.signUpForm.reset();
+      this.submitted = false;
+    } else {
+      console.log('Form is invalid');
+    }
+  }
 
+  // Helper to check if field has error
+  hasError(fieldName: string): boolean {
+    const field = this.signUpForm.get(fieldName);
+    return !!(field && field.invalid && (field.touched || this.submitted));
+  }
+
+  // Helper to get specific error
+  getError(fieldName: string, errorType: string): boolean {
+    const field = this.signUpForm.get(fieldName);
+    return !!(field && field.errors?.[errorType]);
+  }
 }

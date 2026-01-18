@@ -1,25 +1,66 @@
 <div class="form-container">
   <h2>Sign Up for a Course</h2>
 
-  <form [formGroup]="signUpForm">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" id="name" formControlName="name" placeholder="Your name">
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="Your name"
+        [class.invalid]="hasError('name')">
+
+      @if (hasError('name')) {
+        <div class="error">
+          @if (getError('name', 'required')) {
+            <span>Name is required</span>
+          }
+          @if (getError('name', 'minlength')) {
+            <span>Name must be at least 3 characters</span>
+          }
+        </div>
+      }
     </div>
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="email" placeholder="your@email.com">
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="your@email.com"
+        [class.invalid]="hasError('email')">
+
+      @if (hasError('email')) {
+        <div class="error">
+          @if (getError('email', 'required')) {
+            <span>Email is required</span>
+          }
+          @if (getError('email', 'email')) {
+            <span>Please enter a valid email</span>
+          }
+        </div>
+      }
     </div>
 
     <div class="form-group">
       <label for="courseId">Select Course:</label>
-      <select id="courseId" formControlName="courseId">
+      <select
+        id="courseId"
+        formControlName="courseId"
+        [class.invalid]="hasError('courseId')">
         <option value="">Choose a course</option>
         @for (course of courses(); track course.id) {
           <option [value]="course.id">{{ course.title }}</option>
         }
       </select>
+
+      @if (hasError('courseId')) {
+        <div class="error">
+          <span>Please select a course</span>
+        </div>
+      }
     </div>
 
     <button type="submit">Sign Up</button>

@@ -33,6 +33,17 @@ select {
   box-sizing: border-box;
 }
 
+input.invalid,
+select.invalid {
+  border-color: #e74c3c;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
 button {
   width: 100%;
   padding: 0.75rem;
@@ -47,4 +58,9 @@ button {
 
 button:hover {
   background: #2980b9;
+}
+
+button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
 }
