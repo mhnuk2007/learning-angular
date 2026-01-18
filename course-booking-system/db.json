@@ -1,7 +1,7 @@
 {
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Introduction to Angular",
       "description": "Learn the basics of Angular framework.",
       "price": 49,
@@ -11,7 +11,7 @@
       "imgUrl": "angularlogo.svg"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Advance Angular",
       "description": "Deep dive into advanced Angular topics.",
       "price": 99,
@@ -21,7 +21,7 @@
       "imgUrl": "angularlogo.svg"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Introduction to RxJS",
       "description": "Learn reactive programming with RxJS.",
       "price": 39,
@@ -29,6 +29,37 @@
       "soldOut": false,
       "onSale": false,
       "imgUrl": "rxjs.png"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Honey Chauhan",
+      "email": "honey@example.com",
+      "enrolledCourseIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Amit Kumar",
+      "email": "amit@example.com",
+      "enrolledCourseIds": [
+        2
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Sara Ali",
+      "email": "sara@example.com",
+      "enrolledCourseIds": []
+    },
+    {
+      "id": 0,
+      "name": "Sunny",
+      "email": "sunny@example.com",
+      "enrolledCourseIds": "3"
     }
   ]
 }

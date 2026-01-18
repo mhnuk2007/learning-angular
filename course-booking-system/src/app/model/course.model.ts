@@ -7,6 +7,4 @@ export interface Course {
   imgUrl?: string;
   soldOut?: boolean;
   onSale?: boolean;
-  
-
 }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CourseService } from '../services/course';
 import { Course } from '../model/course.model';
 import { CommonModule } from '@angular/common';
+import { Student } from '../model/student.model';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -41,6 +42,21 @@ export class SignUpForm implements OnInit {
     this.submitted = true;
 
     if (this.signUpForm.valid) {
+      const student: Student = {
+        id: 0,
+        name: this.signUpForm.value.name,
+        email: this.signUpForm.value.email,
+        enrolledCourseIds: this.signUpForm.value.courseId
+
+      }
+      this.courseService.addStudent(student).subscribe({
+        next: (data) => {
+          console.log('Student added successfully:', data);
+        },
+        error: (error) => {
+          console.error('Error adding student:', error);
+        }
+      });
       console.log('Form submitted:', this.signUpForm.value);
       alert('Sign up successful!');
       this.signUpForm.reset();
