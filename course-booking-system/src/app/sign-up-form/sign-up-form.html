@@ -1,1 +1,27 @@
-<p>sign-up-form works!</p>
+<div class="form-container">
+  <h2>Sign Up for a Course</h2>
+
+  <form [formGroup]="signUpForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" placeholder="Your name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" placeholder="your@email.com">
+    </div>
+
+    <div class="form-group">
+      <label for="courseId">Select Course:</label>
+      <select id="courseId" formControlName="courseId">
+        <option value="">Choose a course</option>
+        @for (course of courses(); track course.id) {
+          <option [value]="course.id">{{ course.title }}</option>
+        }
+      </select>
+    </div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
